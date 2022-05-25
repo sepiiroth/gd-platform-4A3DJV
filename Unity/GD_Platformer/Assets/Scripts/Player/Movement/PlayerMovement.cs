@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Z))
         {
             isJumping = true;
-            playerRigidbody.AddForce(Vector3.up * 5, ForceMode.Impulse);
+            playerRigidbody.AddForce(Vector3.up * 6, ForceMode.Impulse);
         }
     }
 
