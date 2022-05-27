@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+    public GameObject victory;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +16,11 @@ public class PlayerInput : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnTriggerEnter(Collider other) {
+        if(other.transform.tag == "Victory") {
+            victory.SetActive(true);
+        }
     }
 }
