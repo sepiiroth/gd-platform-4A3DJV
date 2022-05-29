@@ -10,7 +10,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isJumping;
 
-    [SerializeField] private float playerSpeed = 5f;
+    [SerializeField] public float playerSpeed = 5f;
+    [SerializeField] public float playerStrength = 6f;
 
     // Start is called before the first frame update
     void Start()
@@ -53,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Z))
         {
             isJumping = true;
-            playerRigidbody.AddForce(Vector3.up * 6, ForceMode.Impulse);
+            playerRigidbody.AddForce(Vector3.up * playerStrength, ForceMode.Impulse);
         }
     }
 
