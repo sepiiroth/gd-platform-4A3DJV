@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
-    public GameObject player;
+    [SerializeField] private GameObject player;
     public GameObject victoryPanel;
     private Vector3 spawn = new Vector3(-42.7f, 2.01f, 0.0f);
 
