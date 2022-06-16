@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '->  PLAY  <-
+  m_text: '->  JOUER  <-
 
 '
   m_isRightToLeft: 0
@@ -838,7 +838,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '->  QUIT  <-
+  m_text: '->  QUITTER  <-
 
 '
   m_isRightToLeft: 0
@@ -1011,7 +1011,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: LevelTest
+          m_StringArgument: FirstScenario
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1868229305

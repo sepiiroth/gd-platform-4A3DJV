@@ -6,6 +6,7 @@ public class RotateCamera : MonoBehaviour
 {
     private Transform cameraTransform;
     private Animator cameraAnimator;
+    [SerializeField]private Animator player;
     private bool rot;
     private int rotValue;
     
@@ -36,7 +37,14 @@ public class RotateCamera : MonoBehaviour
             float newZ = 10 *  rotValue - 10;
             cameraTransform.localPosition = new Vector3(newX, 0, newZ);
             cameraTransform.rotation = Quaternion.Euler(0 , 90 * rotValue, 0);*/
+            if(GameManager.Instance().dimension == 0) {
+                player.Play("Base Layer.KiwiRotation1", 0, 0.25f);
+            } else if(GameManager.Instance().dimension == 1) {
+                player.Play("Base Layer.KiwiRotation2", 0, 0.25f);
+            }
+
             GameManager.Instance().ChangeDimension();
+
         }
     }
 }
