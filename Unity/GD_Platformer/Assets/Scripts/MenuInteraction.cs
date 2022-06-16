@@ -14,4 +14,7 @@ public class MenuInteraction : MonoBehaviour
     }
 
     
+    public void RebootTime() {
+        Time.timeScale = 1f;
+    }
 }

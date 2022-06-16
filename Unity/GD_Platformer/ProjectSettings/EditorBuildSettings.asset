@@ -9,15 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: b401d9add98fa7f439cde133ec642b7f
   - enabled: 1
+    path: Assets/Scenes/FirstScenario.unity
+    guid: 97af9a890a586474c87d20d83e4c7308
+  - enabled: 1
+    path: Assets/Scenes/Level 0.unity
+    guid: 219c2096dc38919468608cf543d95234
+  - enabled: 1
     path: Assets/Scenes/LevelTest.unity
     guid: 6a33d3cd3965b8d4a8942fe1d2301556
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
-    path: Assets/Scenes/Level 0.unity
-    guid: 219c2096dc38919468608cf543d95234
-  - enabled: 1
-    path: Assets/Scenes/FirstScenario.unity
-    guid: 97af9a890a586474c87d20d83e4c7308
   m_configObjects: {}

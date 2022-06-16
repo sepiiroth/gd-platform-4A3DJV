@@ -21,6 +21,7 @@ public class PlayerInput : MonoBehaviour
     void OnTriggerEnter(Collider other) {
         if(other.transform.tag == "Victory") {
             victory.SetActive(true);
+            Time.timeScale = 0f;
         }
     }
 }
