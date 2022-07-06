@@ -266,6 +266,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 592d036e87e330f4c9efc220edcbdd63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  victoryPanel: {fileID: 0}
+  pausePanel: {fileID: 0}
+  onPause: 0
+  spawn: {x: -42.7, y: 2.01, z: 0}
+  dimension: 0
 --- !u!4 &917923412
 Transform:
   m_ObjectHideFlags: 0
@@ -380,6 +386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ab2d382368ba814e9214da77ead934a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!95 &1091463212
 Animator:
   serializedVersion: 4
@@ -526,6 +533,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 5
+  playerStrength: 6
+  animation: {fileID: 0}
+  animation1: {fileID: 0}
+  watermelon: []
+  WT1: 0
+  WT2: 0
+  WT3: 0
 --- !u!54 &1221824152
 Rigidbody:
   m_ObjectHideFlags: 0
