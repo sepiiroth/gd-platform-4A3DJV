@@ -60,7 +60,6 @@ public class Tweak : MonoBehaviour
                 cameraAnimation.speed -= f;
                 cameraSpeedValue.text = cameraAnimation.speed.ToString();
                 break;
-            break;
         }
     }
 }

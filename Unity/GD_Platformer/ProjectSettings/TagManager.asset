@@ -14,6 +14,8 @@ TagManager:
   - Apri
   - Bana
   - Lemon
+  - Ennemi
+  - HeadEnnemi
   layers:
   - Default
   - TransparentFX

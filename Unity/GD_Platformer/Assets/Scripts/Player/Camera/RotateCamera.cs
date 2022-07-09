@@ -8,7 +8,6 @@ public class RotateCamera : MonoBehaviour
     private Animator cameraAnimator;
     [SerializeField]private Animator player;
     private bool rot;
-    private int rotValue;
     
     // Start is called before the first frame update
     void Start()
@@ -16,7 +15,6 @@ public class RotateCamera : MonoBehaviour
         cameraTransform = GetComponent<Transform>();
         cameraAnimator = GetComponent<Animator>();
         rot = false;
-        rotValue = 0;
     }
 
     // Update is called once per frame

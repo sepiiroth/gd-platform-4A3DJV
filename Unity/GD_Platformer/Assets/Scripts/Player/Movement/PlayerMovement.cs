@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] public float playerSpeed = 5f;
     [SerializeField] public float playerStrength = 6f;
-    [SerializeField] public Animator animation;
+    [SerializeField] public Animator animations;
     [SerializeField] public Animator animation1;
     [SerializeField] public GameObject[] watermelon;
     public bool WT1 = false;
@@ -31,27 +31,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) {
-            animation.SetBool("isRunningRight", true);
-            animation1.SetBool("isRunningRight", true);
-        } else {
-            animation.SetBool("isRunningRight", false);
-            animation1.SetBool("isRunningRight", false);
-        }
-
-        if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.Q)) {
-            animation.SetBool("isRunningLeft", true);
-            animation1.SetBool("isRunningLeft", true);
-        } else {
-            animation.SetBool("isRunningLeft", false);
-            animation1.SetBool("isRunningLeft", false);
-        }
-
-        if(Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Z)) {
-            animation.SetBool("isJumpingRight", true);
+        if(Input.GetKey(GameManager.Instance().jump)) {
+            animations.SetBool("isJumpingRight", true);
             animation1.SetBool("isJumpingRight", true);
         } else {
-            animation.SetBool("isJumpingRight", false);
+            animations.SetBool("isJumpingRight", false);
             animation1.SetBool("isJumpingRight", false);
         }
         Move();
@@ -59,20 +43,34 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    void Move()
-    {
-        float xAxis = Input.GetAxis("Horizontal");
-        
-        if (xAxis != 0)
-        {
-            Vector3 movement = new Vector3(xAxis, 0, 0);
+    void Move() {
+        if(Input.GetKey(GameManager.Instance().right) && GameManager.Instance().onPause == false) {
+            animations.SetBool("isRunningRight", true);
+            animation1.SetBool("isRunningRight", true);
+            Vector3 movement = new Vector3(1, 0, 0);
             if (GameManager.Instance().GetDimension() == 1)
             {
-                movement = new Vector3(0, 0, -xAxis);
+                movement = new Vector3(0, 0, -1);
             }
             playerTransform.position += movement * Time.deltaTime * playerSpeed;
+        } else {
+            animations.SetBool("isRunningRight", false);
+            animation1.SetBool("isRunningRight", false);
         }
-        
+
+        if(Input.GetKey(GameManager.Instance().left) && GameManager.Instance().onPause == false) {
+            animations.SetBool("isRunningLeft", true);
+            animation1.SetBool("isRunningLeft", true);
+            Vector3 movement = new Vector3(1, 0, 0);
+            if (GameManager.Instance().GetDimension() == 1)
+            {
+                movement = new Vector3(0, 0, -1);
+            }
+            playerTransform.position -= movement * Time.deltaTime * playerSpeed;
+        } else {
+            animations.SetBool("isRunningLeft", false);
+            animation1.SetBool("isRunningLeft", false);
+        } 
     }
 
     void Jump()
@@ -81,8 +79,7 @@ public class PlayerMovement : MonoBehaviour
         {
             return;
         }
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Z))
-        {
+        if (Input.GetKey(GameManager.Instance().jump) && GameManager.Instance().onPause == false) {
             isJumping = true;
             playerRigidbody.AddForce(Vector3.up * playerStrength, ForceMode.Impulse);
         }
@@ -131,6 +128,21 @@ public class PlayerMovement : MonoBehaviour
             target.gameObject.SetActive(false);
             watermelon[2].SetActive(true);
             this.WT3 = true;
+        }
+        if(target.tag == "Ennemi") {
+            playerTransform.transform.position = GameManager.Instance().spawn;
+        }
+
+        if(target.tag == "HeadEnnemi") {
+            var anim = target.gameObject.transform.parent.gameObject.GetComponent<Animator>();
+            anim.SetBool("Dead", true);
+            target.gameObject.transform.parent.gameObject.GetComponent<BoxCollider>().enabled = false;
+        }
+    }
+
+    void OnTriggerExit(Collider target) {
+        if(target.tag == "Spring") {
+            playerStrength = 6;
         }
     }
 }

@@ -11,6 +11,9 @@ public class Dialogue : MonoBehaviour {
     public string[] lines;
     public Image[] character;
     public float textSpeed;
+    [SerializeField] private SaveLoad save;
+    public Statistics stats;
+
 
     private int index;
     private bool characterAppear = false;
@@ -19,6 +22,7 @@ public class Dialogue : MonoBehaviour {
         textComponent.text = string.Empty;
         ShowCharacter(character[0], false);
         StartDialogue();
+        stats = save.stats;
     }
 
     void Update() {
@@ -75,6 +79,8 @@ public class Dialogue : MonoBehaviour {
             character[0].gameObject.SetActive(false);
             character[1].gameObject.SetActive(false);
             gameObject.SetActive(false);
+            stats.scenarioLevel1Complete = true;
+            save.Save();
             SceneManager.LoadScene("Level 0");
         }
     }
