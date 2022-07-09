@@ -69,6 +69,20 @@ public class PlayerInput : MonoBehaviour
             stats.timeLevel2 = CompareTime(finalTimer.text, stats.timeLevel2);
             stats.level2Complete = true;
         }
+
+        if(scene.name == "Level 2") {
+            if(playerMov.WT1 == true) {
+                stats.wm1level3 = true;
+            }
+            if(playerMov.WT2 == true) {
+                stats.wm2level3 = true;
+            }
+            if(playerMov.WT3 == true) {
+                stats.wm3level3 = true;
+            }
+            stats.timeLevel3 = CompareTime(finalTimer.text, stats.timeLevel2);
+            stats.level3Complete = true;
+        }
     }
 
     string CompareTime(string time, string timeOnSave) {

@@ -80,6 +80,8 @@ public class MenuInteraction : MonoBehaviour
             RunScene("Level 0");
         } else if(stats.level1Complete == true && stats.level2Complete == false) {
             RunScene("Level 1");
+        } else if(stats.level1Complete == true && stats.level2Complete == true && stats.level3Complete == false) {
+            RunScene("Level 2");
         }
     }
 
