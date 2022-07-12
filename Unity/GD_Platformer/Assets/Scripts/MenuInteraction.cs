@@ -73,6 +73,10 @@ public class MenuInteraction : MonoBehaviour
                 stats.adminMode = false;
             }
         }
+
+        if(GameManager.Instance().onPause == false) {
+            optionsCanvas.SetActive(false);
+        }
     }
 
     public void Continuer() {
